@@ -1,0 +1,7 @@
+{
+    "mongoHost": "cluster0-w59x0.gcp.mongodb.net/test?retryWrites=true&w=majority",
+    "mongoPort": "27017",
+    "mongoDatabase": "syncdata",
+    "mongoUser": "Jimmy",
+    "mongoPass": "sync3World"
+  }
