@@ -14,7 +14,7 @@ const agenda = require('./src/routes/Agenda')
 var app = express();
 
 //server configuration
-var prod = true
+var prod = false
 var basePath = '/api';
 var port = 6200;
 let uri = ''
@@ -27,7 +27,9 @@ if (prod) {
   const host = nconf.get('mongoHost');
   const dbPort = nconf.get('mongoPort');
 
-  uri = `mongodb+srv://${user}:${pass}@${host}`;
+  mongoose.connect('mongodb://@localhost:27017/synclearning', {useNewUrlParser: true})
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
   // if (nconf.get('mongoDatabase')) {
   //   uri = `${uri}/${nconf.get('mongoDatabase')}`;
   // }
@@ -39,14 +41,6 @@ if (prod) {
 app.use(cors());
 
 // Connection to DB
-mongoose.connect(uri)
-  .then(() => {
-    console.log('Backend Started');
-  })
-  .catch(err => {
-    console.error('Backend error:', err.stack);
-    process.exit(1);
-  });
 
 
 // App Instance
