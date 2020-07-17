@@ -13,9 +13,9 @@ let projects = [
   {status:"In progress", image:`${require("./../../assets/images/inprogress.jpg")}`, name:"third"},
   {status:"Done", image:`${require("./../../assets/images/project-done.png")}`, name:"fourth"}];
 
-  let BannerItems = [
-    {image:`${require("./../../assets/images/imgdummy.png")}`, text:"lolololol", title:"ejejejeje", button:"Contact us"}
-]
+  let BannerItems = 
+    {image:`${require("./../../assets/images/golden-gate.jpg")}`, text:"Lorem Ipsum it amet, te vel nobis consul recusabo, qui numquam senserit eu. Nominavi repudiandae ut per. Debet cetero at sed. Mea ei agam feugiat nonumes, vim et tractatos conceptam. Id dicit dolores sea, et sed laudem dolores. Per munere postulant mnesarchum ad, vis admodum molestie antiopam ut.", title:"ejejejeje", button:"Contact us"};
+
   
 const CardWrapper = styled.div`
   display: flex;
@@ -44,10 +44,13 @@ const CardWrapper = styled.div`
       })
       return(result)
     };
+
+    
+
     render() {
     return (
       <div>
-        <Banner />
+        <Banner item={BannerItems} position={`center`} />
         <h1>In progress</h1>
 
         <CardWrapper>
