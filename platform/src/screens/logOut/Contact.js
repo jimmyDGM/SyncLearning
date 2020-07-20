@@ -13,7 +13,7 @@ export default class ContactScreen extends React.Component {
 	render() {
 		return (
 			<div>
-				<Banner item={BannerItems} position={`center`} />
+				<Banner item={BannerItems} position={`left`} />
                 Contact
             </div>
 		)

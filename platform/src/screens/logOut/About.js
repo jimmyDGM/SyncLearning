@@ -12,7 +12,7 @@ export default class AboutScreen extends React.Component {
 	render() {
 		return (
 			<div>
-				<Banner item={BannerItems} />
+				<Banner item={BannerItems} position={`right`} />
                 About
             </div>
 		)
