@@ -1,9 +1,10 @@
 import React from 'react';
-import Styled from 'styled-components';
 import styled from 'styled-components';
 import Card from './Card';
 import _ from 'lodash';
 import Banner from './Banner';
+import DesktopComponents from './DesktopComponents';
+import DesktopRounds from './DesktopRounds';
 
 
 
@@ -13,8 +14,22 @@ let projects = [
   {status:"In progress", image:`${require("./../../assets/images/inprogress.jpg")}`, name:"third"},
   {status:"Done", image:`${require("./../../assets/images/project-done.png")}`, name:"fourth"}];
 
-  let BannerItems = 
+let BannerItems = 
     {image:`${require("./../../assets/images/golden-gate.jpg")}`, text:"Lorem Ipsum it amet, te vel nobis consul recusabo, qui numquam senserit eu. Nominavi repudiandae ut per. Debet cetero at sed. Mea ei agam feugiat nonumes, vim et tractatos conceptam. Id dicit dolores sea, et sed laudem dolores. Per munere postulant mnesarchum ad, vis admodum molestie antiopam ut.", title:"ejejejeje", button:"Contact us"};
+
+let DesktopOnes = [
+  {image:`${require("./../../assets/images/test1.png")}`, text:"First Column"},
+  {image:`${require("./../../assets/images/test2.png")}`, text:"Second Column"},
+  {image:`${require("./../../assets/images/test3.png")}`, text:"Third Column"},
+]
+
+let Rounds = [
+  {image:`${require("./../../assets/images/round1.png")}`, text:"First"},
+  {image:`${require("./../../assets/images/round2.png")}`, text:"Second"},
+  {image:`${require("./../../assets/images/round3.png")}`, text:"Third"},
+  {image:`${require("./../../assets/images/round4.png")}`, text:"Fourth"},
+
+]
 
   
 const CardWrapper = styled.div`
@@ -45,11 +60,37 @@ const CardWrapper = styled.div`
       return(result)
     };
 
+    renderDesktopComponents(DesktopOne, index) {
+      let desktopList = _.partition(DesktopOne, index)
+      let outcome = desktopList[0].map(DesktopOne => {
+        return (
+          <DesktopComponents image={DesktopOne.image} text={DesktopOne.text}/>
+        )
+      })
+      return(outcome)
+    };
+
+    renderRounds(Round, index) {
+      let roundList = _.partition(Round, index)
+      let result = roundList[0].map(Round => {
+        return(
+          <DesktopRounds image={Round.image} text={Round.text}/>
+        )
+      })
+      return(result)
+    };
+
     
 
     render() {
     return (
       <div>
+        <CardWrapper>
+          {this.renderRounds(Rounds)}
+        </CardWrapper>
+        <CardWrapper>
+          {this.renderDesktopComponents(DesktopOnes)}
+        </CardWrapper>
         <Banner item={BannerItems} position={`center`} />
         <h1>In progress</h1>
 

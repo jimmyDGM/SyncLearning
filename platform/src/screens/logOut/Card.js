@@ -30,10 +30,8 @@ const Card = (props) => {
     return (
         <div>
             <StyledContainer>
-
-            <h3>{props.status}</h3>
-            <StyledImg src={props.image} />
-            <Button>{props.name}</Button>
+              <StyledImg src={props.image} />
+              <Button>{props.name}</Button>
             </StyledContainer>
 
         </div>
