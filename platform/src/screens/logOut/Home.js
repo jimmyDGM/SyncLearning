@@ -5,6 +5,8 @@ import _ from 'lodash';
 import Banner from './Banner';
 import DesktopComponents from './DesktopComponents';
 import DesktopRounds from './DesktopRounds';
+import DesktopSide from './DesktopSide';
+import DesktopNumbers from './DesktopNumbers';
 
 
 
@@ -21,26 +23,49 @@ let DesktopOnes = [
   {image:`${require("./../../assets/images/test1.png")}`, text:"First Column"},
   {image:`${require("./../../assets/images/test2.png")}`, text:"Second Column"},
   {image:`${require("./../../assets/images/test3.png")}`, text:"Third Column"},
-]
-
-let Rounds = [
-  {image:`${require("./../../assets/images/round1.png")}`, text:"First"},
-  {image:`${require("./../../assets/images/round2.png")}`, text:"Second"},
-  {image:`${require("./../../assets/images/round3.png")}`, text:"Third"},
-  {image:`${require("./../../assets/images/round4.png")}`, text:"Fourth"},
+  {image:`${require("./../../assets/images/test1.png")}`, text:"First Column"},
+  {image:`${require("./../../assets/images/test2.png")}`, text:"Second Column"},
+  {image:`${require("./../../assets/images/test3.png")}`, text:"Third Column"},
+  {image:`${require("./../../assets/images/test2.png")}`, text:"Second Column"},
+  {image:`${require("./../../assets/images/test3.png")}`, text:"Third Column"},
 
 ]
 
+
+
+
+
+let Numbers = [
+  {number: 23, text:'Fancy text'},
+  {number: 34, text:'Fancier text'},
+  {number: 7, text:'Fanciest text'},
+]
   
 const CardWrapper = styled.div`
+  width: 100%;
   display: flex;
-  margin: 2em;
   justify-content: space-evenly;
   
 `
   
-  
-  
+
+
+const DesktopOneContainer= styled.div`
+width:100%;
+display: grid;
+grid-template-columns:1fr 1fr 1fr;
+
+grid-gap: 30px 30px;
+justify-items: center;
+align-items: center;
+`
+
+const NumbersContainer = styled.div`
+width: 100%;
+display: grid;
+grid-template-columns:1fr 1fr 1fr;
+
+`
   
   
   export default class HomeScreen extends React.Component {
@@ -80,18 +105,29 @@ const CardWrapper = styled.div`
       return(result)
     };
 
+    renderNumbers(Number, index) {
+      let numbersList = _.partition(Number, index)
+      let result = numbersList[0].map(Number => {
+        return(
+          <DesktopNumbers number={Number.number} text={Number.text} />
+        )
+      })
+      return(result)
+    };
+
     
 
     render() {
     return (
       <div>
-        <CardWrapper>
-          {this.renderRounds(Rounds)}
-        </CardWrapper>
-        <CardWrapper>
+        <NumbersContainer>
+          {this.renderNumbers(Numbers)}
+        </NumbersContainer>
+        <Banner item={BannerItems} position={`right`} />
+        
+        <DesktopOneContainer>
           {this.renderDesktopComponents(DesktopOnes)}
-        </CardWrapper>
-        <Banner item={BannerItems} position={`center`} />
+        </DesktopOneContainer>
         <h1>In progress</h1>
 
         <CardWrapper>

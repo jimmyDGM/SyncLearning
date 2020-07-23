@@ -11,8 +11,7 @@ align-items: center;
 background-image: url(${props => props.image});
 background-repeat: no-repeat;
 background-size: cover;
-display: flex;
-justify-content: ${props => props.position};
+text-align: ${props => props.position};
 `
 
 
@@ -20,9 +19,7 @@ justify-content: ${props => props.position};
 const BannerCard = styled.div`
 height: 350px;
 width: 20%;
-display: grid;  
-text-align: ${props => props.position};
-justify-content: ${props => props.position};
+display: inline-block;
 `
 
 const BannerTitle = styled.h2`
@@ -32,7 +29,6 @@ padding: 0.5em;
 const BannerText = styled.p`
 font-size: 1em;
 padding: 0.5em;
-text-align: ${props => props.position};
 `
 
 const BannerButton = styled.button`
