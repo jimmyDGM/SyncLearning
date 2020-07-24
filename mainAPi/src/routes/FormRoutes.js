@@ -19,7 +19,7 @@ router.get('/Form', function(req, res) {
 
 router.post('/Form', function(req, res){
     console.log(req.body);
-    Form.create({email:req.body.mail, text:req.body.text})
+    Form.create({email:req.body.email, text:req.body.text})
     .then(function(form) {
          res.send(form)
 

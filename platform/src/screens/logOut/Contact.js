@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Banner from './Banner';
 import Form from './Form';
+import Messages from './Messages';
 
 
 let BannerItems = 
@@ -17,6 +18,7 @@ export default class ContactScreen extends React.Component {
 				<Banner item={BannerItems} position={`left`} />
                 Contact
 				<Form />
+				<Messages />
             </div>
 		)
 	}

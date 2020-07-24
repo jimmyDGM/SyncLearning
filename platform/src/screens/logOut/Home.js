@@ -5,7 +5,6 @@ import _ from 'lodash';
 import Banner from './Banner';
 import DesktopComponents from './DesktopComponents';
 import DesktopRounds from './DesktopRounds';
-import DesktopSide from './DesktopSide';
 import DesktopNumbers from './DesktopNumbers';
 
 

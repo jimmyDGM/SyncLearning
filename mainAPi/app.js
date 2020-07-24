@@ -15,20 +15,14 @@ const FormRoutes = require('./src/routes/FormRoutes');
 var app = express();
 
 //server configuration
-var prod = false
+var prod = true
 var basePath = '/api';
 var port = 6200;
 let uri = ''
 if (prod) {
-  port = 8080;
-  nconf.argv().env().file('keys.json');
+  
 
-  const user = nconf.get('mongoUser');
-  const pass = nconf.get('mongoPass');
-  const host = nconf.get('mongoHost');
-  const dbPort = nconf.get('mongoPort');
-
-  mongoose.connect('mongodb://@localhost:27017/synclearning', {useNewUrlParser: true})
+  mongoose.connect('mongodb://user@localhost:27017/synclearning', {useNewUrlParser: false})
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
   // if (nconf.get('mongoDatabase')) {
