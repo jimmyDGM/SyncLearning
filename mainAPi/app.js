@@ -10,6 +10,7 @@ var InterviewRoutes = require('./src/routes/InterviewRoutes');
 const user = require('./src/routes/User')
 const news = require('./src/routes/News')
 const agenda = require('./src/routes/Agenda')
+const FormRoutes = require('./src/routes/FormRoutes');
 
 var app = express();
 
@@ -54,6 +55,7 @@ app.use(basePath, user)
 app.use(basePath, news)
 app.use(basePath, agenda)
 app.use(basePath, routes)
+app.use(basePath, FormRoutes);
 
 
 // Execute App
