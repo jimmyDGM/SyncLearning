@@ -20,7 +20,7 @@ constructor(props) {
 				
 				<ImageContainer>
 					<h2>Join Us</h2>
-					<ImageContent src='/assets/contact.svg' />
+					<ImageContent src={require('./../../../assets/images/synclogo.png')} />
 				</ImageContainer>
 
 				<Card>
@@ -30,9 +30,9 @@ constructor(props) {
 					</div>
 					<Header> 
 						<h3>OR</h3> 
-						<p onClick={ (e) => {this.setState({signedUpUser:!this.state.signedUpUser})}}>
+						<SignButton onClick={ (e) => {this.setState({signedUpUser:!this.state.signedUpUser})}}>
 						 {this.state.signedUpUser ? ' Sign Up ' : ' Sign In '}
-						</p>
+						</SignButton>
 					</Header>
 				</Card>
 			</Container>
@@ -52,7 +52,6 @@ export default connect(mapStateToProps)(SignScreen)
 
 const ImageContainer = styled.div`
 	width:50%;
-	border-right:2px solid #f7e0ff;
 
 `
 
@@ -66,16 +65,27 @@ const Header = styled.div`
 `
 
 const Container = styled.div`
-	display:flex;
 	border: 2px solid #f7e0ff;
+	display: grid;
 	min-height:500px;
 	margin:5%;
 	text-align:center;
+	justify-items: center;
 `
 const Card = styled.div`
 	width:50%;
 	border-radius: 10px;
 	color: #c4c8cf;
+`
+const SignButton = styled.button`
+	width:20%;
+	height: 35px;
+    margin:30px;  
+	background-color: rgba(176, 209, 255, 0.667);
+	border-radius: 20px;
+	align-self:center;
+
+	
 `
 
 const styles = {

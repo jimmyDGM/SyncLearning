@@ -101,10 +101,10 @@ const SignInputs = styled.input`
 `
 
 const SignButton = styled.button`
-	width:60%;
+	width:50%;
 	height: 35px;
     margin:30px;  
-	background-color:#fcc0cd;
+	background-color: rgba(176, 209, 255, 0.667);
 	border-radius: 20px;
 	align-self:center;
 

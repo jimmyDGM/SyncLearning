@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Banner from './Banner';
 import Form from './Form';
 import Messages from './Messages';
+import Profile from './Profile';
 
 
 let BannerItems = 
@@ -19,6 +20,9 @@ export default class ContactScreen extends React.Component {
                 Contact
 				<Form />
 				<Messages />
+				<Profile />
+
+
             </div>
 		)
 	}
