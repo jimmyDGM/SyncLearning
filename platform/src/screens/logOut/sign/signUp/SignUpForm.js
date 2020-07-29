@@ -27,7 +27,7 @@ class SignUpForm extends React.Component {
 		if(this.state.pswd.length > 7 && this.state.eMail.length > 5 && this.state.name.length >1) {
 
 			if(this.state.pswd === this.state.confirmedpswd) {
-				axios.post(this.props.baseApi+'api/register/', this.state)
+				axios.post('http://localhost:6200/api/register/', this.state)
 				.then(res => {
 					console.log(res)
 					if (res.status === 200) {

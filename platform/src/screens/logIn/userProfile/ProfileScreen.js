@@ -14,13 +14,14 @@ class ProfileScreen extends React.Component {
         this.state = {
             section:'profile',
             name: '',
+            photo: ''
         }
 
     }
 
     componentDidMount() {
-		axios.get(this.props.baseApi+'api/user/data')
-		  .then(res => {
+		axios.get('http://localhost:6200/api/user/data')
+				  .then(res => {
 			if (res.status === 200) {
 			  this.setState(res.data);
 			} else {
@@ -36,7 +37,7 @@ class ProfileScreen extends React.Component {
 
     renderSwitch() {
         return(
-            <div style={{display:'flex', marginLeft:'5%'}} >
+            <div style={{display:'flex', margin:'5%', justifyContent: 'space-evenly'}} >
                 <SwitchContainer current={this.state.section} section='profile' > 
                     <button onClick={() => this.setState({section:'profile'})} >profile</button>
                 </SwitchContainer>
@@ -87,7 +88,7 @@ class ProfileScreen extends React.Component {
             <div>
             <Container>
                 <ProfilePicture>
-                <img src='/assets/smiley.png' alt='profile' width='120px' height='120px'/>
+                <img src={this.state.photo} alt='profile' width='120px' height='120px'/>
                 </ProfilePicture>
                 <p>{this.state.name} </p>
             </Container>

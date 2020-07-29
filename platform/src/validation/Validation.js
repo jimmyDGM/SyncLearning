@@ -14,7 +14,7 @@ export default function withAuth(ComponentToProtect) {
     }
     componentDidMount() {
 
-      axios.get(ServerUrl+'api/checkToken')
+      axios.get('http://localhost:6200/api/checkToken')
       .then(res => {
           if (res.status === 200) {
             this.setState({ loading: false });

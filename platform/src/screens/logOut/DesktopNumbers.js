@@ -1,20 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Wrapper, Number, Text} from './DesktopStyles';
 
 
-
-const Wrapper = styled.div`
-justify-content: space-evenly;
-text-align: center;
-`
-
-const Number = styled.h3`
-
-`
-
-const Text = styled.p`
-
-`
 
 
 

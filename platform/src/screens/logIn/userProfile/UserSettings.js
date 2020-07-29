@@ -23,7 +23,7 @@ class UserProfile extends React.Component {
 		// 		days=[], time=[{}]
 		// }
 		
-		axios.post(this.props.baseApi+'api/user/settings', this.state)
+		axios.post('htpp://localhost:6200/api/user/settings', this.state)
         .then((response) => {
           console.log(response);
         })

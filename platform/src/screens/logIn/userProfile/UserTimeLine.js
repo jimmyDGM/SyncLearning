@@ -27,7 +27,7 @@ class UserTimeLine extends React.Component {
     updateDb() {
         console.log(this.state)
 
-        axios.post(this.props.baseApi+'api/user/data', this.state)
+        axios.post('http://localhost:6200/api/user/data', this.state)
             .then(res => {
                 console.log(res)
 

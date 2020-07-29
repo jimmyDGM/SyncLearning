@@ -31,7 +31,7 @@ class UserProfile extends React.Component {
 	}
 
 	componentDidMount() {
-		axios.get(this.props.baseApi + 'api/user/data')
+		axios.get('http://localhost:6200/api/user/data')
 			.then(res => {
 				if (res.status === 200) {
 					this.setState(res.data);
@@ -48,7 +48,7 @@ class UserProfile extends React.Component {
 	}
 
 	updateDb() {
-		axios.post(this.props.baseApi + 'api/user/details', this.state)
+		axios.post('http://localhost:6200/api/user/details', this.state)
 			.then(res => {
 				console.log(res)
 				if (res.status === 200) {
@@ -107,11 +107,19 @@ class UserProfile extends React.Component {
 					type='date'
 					onChange={e => this.handleChange(e)}
 				/>
-				<button>add</button>
+				<button onClick={e => this.addExperience()}>add</button>
 
 			</div>
 		)
 	}
+
+	addExperience() {
+		let experience = this.state.experience
+		experience.push(this.state.newExperience)
+		this.setState({ experience:experience, showForm:false }, () => this.updateDb())
+	}
+
+
 
 	addSkill() {
 		let skills = this.state.skillList
@@ -151,7 +159,7 @@ class UserProfile extends React.Component {
 		const formData = new FormData();
 		formData.append('myImage', this.state.file);
 		console.log(formData)
-		axios.post("/api/uploadProfile", formData)
+		axios.post("http://localhost:6200/api/uploadProfile", formData)
 			.then((response) => {
 				console.log(response)
 				alert("The file is successfully uploaded");
@@ -235,11 +243,11 @@ class UserProfile extends React.Component {
 				<div style={{display:'flex', justifyContent:'space-around' }} >
 					<div>
 						<h2>first name</h2>
-						<p>{this.state.info.lastName} </p>
+						<p>{this.state.name}</p>
 					</div>
 					<div>
 						<h2>last name</h2>
-						<p>{this.state.info.firstName} </p>
+						<p>{this.state.name} </p>
 					</div>
 				</div>
 
@@ -262,14 +270,14 @@ class UserProfile extends React.Component {
 				<UserTimeLine
 					show={this.state.showForm}
 					experience={this.state.experience}
-					url={this.props.baseApi + 'api/user/experience'}
+					url={'http://localhost:6200/api/user/experience'}
 				/>
 				<h2>Formations</h2>
 
 				<UserTimeLine
 					show={this.state.showForm}
 					experience={this.state.formations}
-					url={this.props.baseApi + 'api/user/formations'}
+					url={'http://localhost:6200/api/user/formations'}
 				/>
 
 			</Container>

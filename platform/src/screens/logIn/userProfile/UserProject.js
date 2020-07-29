@@ -16,7 +16,7 @@ class UserProject extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(this.props.baseApi+'api/user/data')
+        axios.get('http://localhost:6200/api/user/data')
         .then((response) => {
             this.setState({projects:response.data.projects})
 		})

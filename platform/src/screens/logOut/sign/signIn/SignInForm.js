@@ -26,7 +26,7 @@ class SignInForm extends React.Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		axios.post(this.props.baseApi+'api/authenticate/', this.state)
+		axios.post('http://localhost:6200/api/authenticate/', this.state)
 			.then(res => {
 				console.log(res)
 				if (res.status === 200) {

@@ -1,24 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Row, Col, DesktopImg} from './DesktopStyles';
 
 
 
 
 
-const Row = styled.div`
-display: flex;
-`;
-
-const Col = styled.div`
-text-align: center;
-`;
-
-const DesktopImg = styled.img`
-  width: 50%;
-  height: 50%;
-  object-fit: cover;
-  border: 1px solid;
-`;
 
 
 
