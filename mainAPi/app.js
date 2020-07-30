@@ -53,6 +53,8 @@ app.use(basePath, FormRoutes);
 
 
 // Execute App
+
+app.use(express.static(__dirname + '/public'));
 app.listen(port, () => {
   console.log('InterviewRoutes Backend running on Port: ', port);
 });

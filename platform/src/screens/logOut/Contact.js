@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Banner from './Banner';
 import Form from './Form';
 import Messages from './Messages';

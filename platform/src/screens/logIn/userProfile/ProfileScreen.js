@@ -14,11 +14,10 @@ class ProfileScreen extends React.Component {
         this.state = {
             section:'profile',
             name: '',
-            photo: ''
+            photo: '',
         }
 
     }
-
     componentDidMount() {
 		axios.get('http://localhost:6200/api/user/data')
 				  .then(res => {
@@ -78,17 +77,19 @@ class ProfileScreen extends React.Component {
         }
 
     }
-
-
-
-
+    
+    
+    
     render() {
+        const UserPic = this.state.photo.replace('public', '')
+        const RealPic = UserPic.replace('\\uploads\\', '/uploads/')
+        console.log(RealPic)
 
         return (
             <div>
             <Container>
                 <ProfilePicture>
-                <img src={this.state.photo} alt='profile' width='120px' height='120px'/>
+                <img src= {'http://localhost:6200/' + RealPic}  alt='profile' width='120px' height='120px'/>
                 </ProfilePicture>
                 <p>{this.state.name} </p>
             </Container>

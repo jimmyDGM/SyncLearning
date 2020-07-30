@@ -24,6 +24,7 @@ class UserProfile extends React.Component {
 				lastName:''
 			},
 			newSkill:'',
+			newExperience:'',
 
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,7 +51,7 @@ class UserProfile extends React.Component {
 	updateDb() {
 		axios.post('http://localhost:6200/api/user/details', this.state)
 			.then(res => {
-				console.log(res)
+				console.log(res.data)
 				if (res.status === 200) {
 				} else {
 					const error = new Error(res.error);

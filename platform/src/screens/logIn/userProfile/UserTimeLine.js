@@ -15,10 +15,11 @@ class UserTimeLine extends React.Component {
             description: '',
             jobTitle: '',
             skillList: ['js', 'go', 'solidity'],
-            experience: props.experience,
+            experience: [],
             formations: [],
             file: null,
             photo: '',
+            newExperience: [{experienceDate:'', experienceName:'', experienceDescription:'' }],
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -45,6 +46,7 @@ class UserTimeLine extends React.Component {
     }
 
     renderTimeLine(experience) {
+        console.log(this.props.experience)
         if(this.props.experience) {
             let line = experience.map((event, index) => {
                 return (
@@ -54,7 +56,7 @@ class UserTimeLine extends React.Component {
                         </DateBubble>
                         <div style={{ width: '80%' }} >
                             <h3>{event.name}</h3>
-                            <p>{event.description}</p>
+                            <p>{event.experienceName}</p>
                         </div>
                     </TimePoint>
                 )
@@ -64,37 +66,43 @@ class UserTimeLine extends React.Component {
 
     }
 
+    addExperience() {
+		let experience = this.state.experience
+		experience.push(this.state.newExperience)
+		this.setState({ experience:experience, showForm:false }, () => this.updateDb())
+	}
+
     renderExperienceForm() {
         return (
 
             <div>
                 <label>title</label>
                 <input
-                    id='title'
+                    id='experienceName'
                     type='text'
                     onChange={e => this.handleChange(e)}
                 />
                 <label>description</label>
 
                 <input
-                    id='description'
+                    id='experienceDescription'
                     type='text'
                     onChange={e => this.handleChange(e)}
                 />
                 <label>date</label>
 
                 <input
-                    id= 'date'
+                    id= 'experienceDate'
                     type='date'
                     onChange={e => this.handleChange(e)}
                 />
-                <button onClick={e => this.handleSubmit(e)} >add</button>
+                <button onClick={e => this.addExperience()} >add</button>
 
             </div>
         )
     }
 
-
+    
 
     handleChange(e) {
         this.setState({ [e.target.id]: e.target.value })
@@ -110,11 +118,10 @@ class UserTimeLine extends React.Component {
 
 
 
-
         axios.post(this.props.url, this.state.experience)
         .then((response) => {
-          console.log(response);
-          this.fetchMeetings()
+          console.log(response.data);
+          
         })
         .catch((error) => {
           console.log(error);

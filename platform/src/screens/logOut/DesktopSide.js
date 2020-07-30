@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import {SideCol, SideContainer, SideImg, SideTitle, TextWrapper, SideText} from './Desktopstyles';
+import {SideCol, SideContainer, SideImg, SideTitle, TextWrapper, SideText} from './DesktopStyles';
 
 
 
